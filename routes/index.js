@@ -38,8 +38,6 @@ router.get('/ai', function (req, res) {
   res.render('ai')
 })
 
-module.exports = router
-
 router.get('/f/:url', function (req, res) {
   const url = req.params.url
   res.redirect(url)
@@ -98,3 +96,5 @@ const ArrayUtils = {
     return array
   },
 }
+
+module.exports = router
