@@ -1,0 +1,17 @@
+allowBuilds:
+  aws-sdk: true
+  sqlite3: true
+  tld-list: true
+  unrs-resolver: true
+settings:
+  ignoredBuiltDependencies:
+    - aws-sdk
+    - sqlite3
+    - tld-list
+    - unrs-resolver
+  overrides:
+    "qs@>=6.5.0 <6.5.3": ">=6.5.3"
+    "tar@<=7.5.2": ">=7.5.3"
+    "tar@<=7.5.3": ">=7.5.4"
+    "lodash@>=4.0.0 <=4.17.22": ">=4.17.23"
+    "tar@<7.5.7": ">=7.5.7"

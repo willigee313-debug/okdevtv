@@ -5,7 +5,7 @@ FROM node:20-alpine AS build
 WORKDIR /usr/src/app
 
 # Copy package files
-COPY package.json ./
+COPY package.json pnpm-lock.yaml* pnpm-workspace.yaml* ./
 
 # Install pnpm and dependencies
 RUN npm i -g pnpm && \

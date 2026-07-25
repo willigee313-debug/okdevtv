@@ -21,18 +21,6 @@
     "health-check": "node scripts/health-check.js",
     "prestart": "node scripts/health-check.js"
   },
-  "pnpm": {
-    "overrides": {
-      "qs@>=6.5.0 <6.5.3": ">=6.5.3",
-      "tar@<=7.5.2": ">=7.5.3",
-      "tar@<=7.5.3": ">=7.5.4",
-      "lodash@>=4.0.0 <=4.17.22": ">=4.17.23",
-      "tar@<7.5.7": ">=7.5.7"
-    },
-    "ignoredBuiltDependencies": [
-      "aws-sdk"
-    ]
-  },
   "dependencies": {
     "@aws-sdk/client-ses": "^3.978.0",
     "@sentry/node": "^10.34.0",

@@ -34,6 +34,10 @@ router.get('/api/okdevtv-list', async function (req, res) {
   res.json(data)
 })
 
+router.get('/ai', function (req, res) {
+  res.render('ai')
+})
+
 module.exports = router
 
 router.get('/f/:url', function (req, res) {

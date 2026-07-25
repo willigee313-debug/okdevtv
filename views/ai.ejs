@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>개발자에게 도움이 되는 AI 사용 가이드 | OKdevTV</title>
+  <meta name="description" content="개발자를 위한 AI 도구 활용 가이드. ChatGPT, Claude, Copilot, Cursor 등 AI 개발 도구 사용법과 프롬프트 엔지니어링 실전 팁을 정리했습니다.">
+  <meta name="keywords" content="AI 개발, ChatGPT, Claude, GitHub Copilot, Cursor, AI 코딩, 프롬프트 엔지니어링, 개발자 AI">
+  <meta property="og:title" content="개발자에게 도움이 되는 AI 사용 가이드">
+  <meta property="og:description" content="AI 도구를 활용해 개발 생산성을 극적으로 높이는 실전 가이드">
+  <meta property="og:url" content="https://okdevtv.com/ai">
+  <meta property="og:image" content="https://okdevtv.com/images/thumbs/okdevtv.webp">
+  <link rel="stylesheet" href="/css/ai.css">
+</head>
+
+<body>
+  <div class="bg-mesh" aria-hidden="true"></div>
+
+  <div class="page-wrapper">
+    <!-- Navigation -->
+    <nav class="top-nav" role="navigation">
+      <a href="/" class="nav-logo" aria-label="OKdevTV 홈">
+        <div class="logo-icon" aria-hidden="true">🚀</div>
+        OKdevTV
+      </a>
+      <div class="nav-links">
+        <a href="/mib/ai" class="nav-link">AI 문서</a>
+        <a href="/mib/mcp" class="nav-link">MCP</a>
+        <a href="/mib/llm" class="nav-link">LLM</a>
+        <a href="/mib/openai" class="nav-link">OpenAI</a>
+        <a href="/" class="nav-link">홈으로</a>
+        <button class="btn-share" id="share-btn-top" onclick="sharePage()" title="okdevtv.com/ai 링크 공유하기">
+          🔗 공유하기
+        </button>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-badge" aria-label="업데이트 상태">
+        <span class="dot" aria-hidden="true"></span>
+        2025 최신 업데이트
+      </div>
+      <h1 id="hero-title">
+        <span class="gradient-text">개발자에게 도움이 되는</span><br>
+        AI 사용 가이드
+      </h1>
+      <p>AI 도구를 제대로 활용해 코딩 생산성을 10배 높이는<br>실전 가이드. 도구 선택부터 프롬프트 엔지니어링까지.</p>
+      <div class="hero-stats" role="list">
+        <div class="stat-item" role="listitem">
+          <span class="stat-value">20+</span>
+          <span class="stat-label">AI 도구</span>
+        </div>
+        <div class="stat-item" role="listitem">
+          <span class="stat-value">15+</span>
+          <span class="stat-label">프롬프트 예제</span>
+        </div>
+        <div class="stat-item" role="listitem">
+          <span class="stat-value">10x</span>
+          <span class="stat-label">생산성 향상</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 1: AI 코딩 도구 -->
+    <section aria-labelledby="tools-ide">
+      <div class="section-header">
+        <span class="section-tag tag-purple">IDE 플러그인</span>
+        <h2 id="tools-ide">AI 코딩 도구 (IDE 통합형)</h2>
+        <p>에디터에 직접 통합되어 코드 작성을 도와주는 AI 도구</p>
+      </div>
+      <div class="grid-3">
+        <a href="https://github.com/features/copilot" target="_blank" rel="noopener" class="tool-card">
+          <div class="tool-card-header">
+            <div class="tool-icon icon-green">🤖</div>
+            <div>
+              <div class="tool-name">GitHub Copilot</div>
+              <div class="tool-type">VS Code · IntelliJ · Eclipse</div>
+            </div>
+          </div>
+          <p class="tool-desc">Microsoft/OpenAI 협력작. 코드 자동완성과 인라인 채팅 기능으로 가장 널리 사용됨. 월 $10부터.</p>
+          <div class="tool-tags">
+            <span class="chip">자동완성</span>
+            <span class="chip">채팅</span>
+            <span class="chip">코드리뷰</span>
+          </div>
+        </a>
+
+        <a href="https://cursor.sh" target="_blank" rel="noopener" class="tool-card">
+          <div class="tool-card-header">
+            <div class="tool-icon icon-purple">⚡</div>
+            <div>
+              <div class="tool-name">Cursor</div>
+              <div class="tool-type">VS Code 기반 AI IDE</div>
+            </div>
+          </div>
+          <p class="tool-desc">VS Code를 포크한 AI 네이티브 IDE. Composer로 다중 파일 편집, Agent 모드로 자율 코딩 가능.</p>
+          <div class="tool-tags">
+            <span class="chip">멀티파일</span>
+            <span class="chip">Agent</span>
+            <span class="chip">무료플랜</span>
+          </div>
+        </a>
+
+        <a href="https://www.anthropic.com/claude-code" target="_blank" rel="noopener" class="tool-card">
+          <div class="tool-card-header">
+            <div class="tool-icon icon-orange">🧠</div>
+            <div>
+              <div class="tool-name">Claude Code</div>
+              <div class="tool-type">CLI · Anthropic</div>
+            </div>
+          </div>
+          <p class="tool-desc">터미널 기반 AI 코딩 에이전트. 코드베이스 전체를 이해하고 복잡한 리팩토링과 버그 수정에 탁월.</p>
+          <div class="tool-tags">
+            <span class="chip">CLI</span>
+            <span class="chip">에이전트</span>
+            <span class="chip">리팩토링</span>
+          </div>
+        </a>
+
+        <a href="https://sourcegraph.com/cody" target="_blank" rel="noopener" class="tool-card">
+          <div class="tool-card-header">
+            <div class="tool-icon icon-cyan">🔵</div>
+            <div>
+              <div class="tool-name">Cody AI</div>
+              <div class="tool-type">VS Code · IntelliJ</div>
+            </div>
+          </div>
+          <p class="tool-desc">Sourcegraph의 AI 코딩 어시스턴트. 대규모 코드베이스 검색 및 이해에 강점. 무료 플랜 제공.</p>
+          <div class="tool-tags">
+            <span class="chip">코드검색</span>
+            <span class="chip">무료</span>
+          </div>
+        </a>
+
+        <a href="https://codeium.com" target="_blank" rel="noopener" class="tool-card">
+          <div class="tool-card-header">
+            <div class="tool-icon icon-green">🌿</div>
+            <div>
+              <div class="tool-name">Codeium (Windsurf)</div>
+              <div class="tool-type">VS Code · IntelliJ · 외 40+</div>
+            </div>
+          </div>
+          <p class="tool-desc">무료로 사용 가능한 AI 코딩 도구. 40개 이상의 IDE 지원. Windsurf AI IDE도 운영 중.</p>
+          <div class="tool-tags">
+            <span class="chip">무료</span>
+            <span class="chip">다양한IDE</span>
+          </div>
+        </a>
+
+        <a href="https://www.jetbrains.com/ai/" target="_blank" rel="noopener" class="tool-card">
+          <div class="tool-card-header">
+            <div class="tool-icon icon-pink">🔷</div>
+            <div>
+              <div class="tool-name">JetBrains AI</div>
+              <div class="tool-type">IntelliJ · WebStorm · PyCharm</div>
+            </div>
+          </div>
+          <p class="tool-desc">JetBrains IDE에 내장된 AI 어시스턴트. 코드 생성, 문서화, 테스트 생성 기능. 구독 포함.</p>
+          <div class="tool-tags">
+            <span class="chip">IntelliJ</span>
+            <span class="chip">내장</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Section 2: 채팅형 AI -->
+    <section aria-labelledby="tools-chat">
+      <div class="section-header">
+        <span class="section-tag tag-blue">채팅 AI</span>
+        <h2 id="tools-chat">채팅형 AI 서비스</h2>
+        <p>웹 브라우저에서 바로 사용하는 대화형 AI 도구</p>
+      </div>
+      <div class="grid-3">
+        <a href="https://chatgpt.com" target="_blank" rel="noopener" class="tool-card">
+          <div class="tool-card-header">
+            <div class="tool-icon icon-green">💬</div>
+            <div>
+              <div class="tool-name">ChatGPT</div>
+              <div class="tool-type">OpenAI · 원조 LLM 챗봇</div>
+            </div>
+          </div>
+          <p class="tool-desc">GPT-4o 기반. Code Interpreter로 코드 실행 가능. 이미지 생성(DALL-E), 파일 분석 지원.</p>
+          <div class="tool-tags">
+            <span class="chip">GPT-4o</span>
+            <span class="chip">코드실행</span>
+            <span class="chip">이미지생성</span>
+          </div>
+        </a>
+
+        <a href="https://claude.ai" target="_blank" rel="noopener" class="tool-card">
+          <div class="tool-card-header">
+            <div class="tool-icon icon-orange">🌟</div>
+            <div>
+              <div class="tool-name">Claude</div>
+              <div class="tool-type">Anthropic · 코딩 최강자</div>
+            </div>
+          </div>
+          <p class="tool-desc">Claude 3.7 Sonnet 기반. 코드 작성·디버깅·리팩토링에서 최고 성능. 이미지 첨부 가능.</p>
+          <div class="tool-tags">
+            <span class="chip">코딩특화</span>
+            <span class="chip">긴컨텍스트</span>
+            <span class="chip">이미지</span>
+          </div>
+        </a>
+
+        <a href="https://gemini.google.com" target="_blank" rel="noopener" class="tool-card">
+          <div class="tool-card-header">
+            <div class="tool-icon icon-blue">♊</div>
+            <div>
+              <div class="tool-name">Gemini</div>
+              <div class="tool-type">Google · 긴 문서 분석</div>
+            </div>
+          </div>
+          <p class="tool-desc">Gemini 2.5 Pro 기반. 100만 토큰 컨텍스트 창. 긴 문서 요약과 코드 분석에 강점.</p>
+          <div class="tool-tags">
+            <span class="chip">1M토큰</span>
+            <span class="chip">문서분석</span>
+            <span class="chip">Google연동</span>
+          </div>
+        </a>
+
+        <a href="https://www.perplexity.ai/" target="_blank" rel="noopener" class="tool-card">
+          <div class="tool-card-header">
+            <div class="tool-icon icon-cyan">🔍</div>
+            <div>
+              <div class="tool-name">Perplexity AI</div>
+              <div class="tool-type">실시간 웹 검색 AI</div>
+            </div>
+          </div>
+          <p class="tool-desc">실시간 웹 검색 기반 답변. 최신 라이브러리 버전, 에러 솔루션 검색에 최적. 출처 제공.</p>
+          <div class="tool-tags">
+            <span class="chip">실시간검색</span>
+            <span class="chip">출처표시</span>
+          </div>
+        </a>
+
+        <a href="https://phind.com" target="_blank" rel="noopener" class="tool-card">
+          <div class="tool-card-header">
+            <div class="tool-icon icon-purple">🧩</div>
+            <div>
+              <div class="tool-name">Phind</div>
+              <div class="tool-type">개발자 특화 AI 검색</div>
+            </div>
+          </div>
+          <p class="tool-desc">개발자 전용 AI 검색 엔진. 로그인 없이 결과 공유 가능. 기술 문서와 Stack Overflow 우선 검색.</p>
+          <div class="tool-tags">
+            <span class="chip">개발자특화</span>
+            <span class="chip">공유가능</span>
+            <span class="chip">무료</span>
+          </div>
+        </a>
+
+        <a href="https://groq.com" target="_blank" rel="noopener" class="tool-card">
+          <div class="tool-card-header">
+            <div class="tool-icon icon-orange">⚡</div>
+            <div>
+              <div class="tool-name">Groq</div>
+              <div class="tool-type">초고속 추론 AI</div>
+            </div>
+          </div>
+          <p class="tool-desc">LPU 칩 기반 초고속 응답. Llama, Mixtral 등 오픈소스 모델 제공. API 무료 플랜 있음.</p>
+          <div class="tool-tags">
+            <span class="chip">초고속</span>
+            <span class="chip">오픈소스모델</span>
+            <span class="chip">무료API</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Section 3: 프롬프트 엔지니어링 -->
+    <section class="prompt-section" aria-labelledby="prompt-guide">
+      <div class="section-header">
+        <span class="section-tag tag-green">실전 프롬프트</span>
+        <h2 id="prompt-guide">개발자 프롬프트 엔지니어링</h2>
+        <p>AI에게 더 좋은 코드를 얻어내는 프롬프트 작성법</p>
+      </div>
+      <div class="grid-2">
+        <div class="prompt-card">
+          <div class="prompt-card-header">
+            <div class="prompt-number">1</div>
+            <div>
+              <div class="prompt-title">컨텍스트 제공 템플릿</div>
+              <div class="prompt-subtitle">기술 스택과 목표를 명확히 전달</div>
+            </div>
+          </div>
+          <div class="code-block">
+            <span class="comment"># 프로젝트 구조를 명시</span><br>
+            I made 2 folders backend and frontend<br>
+            <span class="comment"># 기술 스택 명시</span><br>
+            backend: <span class="string">Spring Boot 3.x, port 8080</span><br>
+            frontend: <span class="string">Vite + React, port 5173</span><br>
+            <span class="comment"># 구체적 요청</span><br>
+            <span class="keyword">plz complete</span> OAuth2 Google login flow<br>
+            callback: <span class="string">http://localhost:8080/login/oauth2/code/google</span>
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-card-header">
+            <div class="prompt-number">2</div>
+            <div>
+              <div class="prompt-title">에러 디버깅 프롬프트</div>
+              <div class="prompt-subtitle">에러 메시지 + 환경 정보 함께 전달</div>
+            </div>
+          </div>
+          <div class="code-block">
+            <span class="keyword">Environment:</span><br>
+            - OS: macOS Sonoma<br>
+            - Node.js: <span class="string">v20.11.0</span><br>
+            - Package: <span class="string">express 4.18.2</span><br>
+            <br>
+            <span class="keyword">Error message:</span><br>
+            <span class="string">TypeError: Cannot read properties of undefined</span><br>
+            <span class="comment">  at router.get (/routes/index.js:15:5)</span><br>
+            <br>
+            <span class="comment"># 내가 시도한 것과 예상 동작을 명시</span>
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-card-header">
+            <div class="prompt-number">3</div>
+            <div>
+              <div class="prompt-title">코드 리뷰 요청</div>
+              <div class="prompt-subtitle">보안·성능·가독성 기준 명시</div>
+            </div>
+          </div>
+          <div class="code-block">
+            <span class="keyword">Review this code for:</span><br>
+            1. <span class="string">Security</span> (SQL injection, XSS, auth bypass)<br>
+            2. <span class="string">Performance</span> (N+1 queries, memory leaks)<br>
+            3. <span class="string">Readability</span> (naming, complexity)<br>
+            4. <span class="string">Best practices</span> (SOLID, clean code)<br>
+            <br>
+            <span class="comment"># 코드를 붙여넣기</span><br>
+            <span class="keyword">Output in Korean please.</span>
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-card-header">
+            <div class="prompt-number">4</div>
+            <div>
+              <div class="prompt-title">테스트 코드 생성</div>
+              <div class="prompt-subtitle">테스트 프레임워크와 커버리지 기준 명시</div>
+            </div>
+          </div>
+          <div class="code-block">
+            <span class="keyword">Generate unit tests for this function:</span><br>
+            <span class="comment"># 함수 코드 붙여넣기</span><br>
+            <br>
+            <span class="string">Framework:</span> Jest + Testing Library<br>
+            <span class="string">Cover:</span> happy path, edge cases, error cases<br>
+            <span class="string">Style:</span> describe/it/expect pattern<br>
+            <span class="string">Mock:</span> external API calls<br>
+            <br>
+            <span class="comment"># AAA 패턴(Arrange-Act-Assert) 적용</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: 실전 팁 -->
+    <section aria-labelledby="practical-tips">
+      <div class="section-header">
+        <span class="section-tag tag-orange">실전 팁</span>
+        <h2 id="practical-tips">AI 활용 실전 노하우</h2>
+        <p>경험에서 나온 AI 사용 효율 극대화 팁</p>
+      </div>
+      <div class="tips-grid">
+        <div class="tip-card">
+          <div class="tip-icon-wrap icon-purple">💡</div>
+          <h3>프롬프트 최적화</h3>
+          <ul>
+            <li>영어로 입력하면 토큰 절반, 속도 2배</li>
+            <li>"개선해줘" 대신 구체적 요구사항 전달</li>
+            <li>예상 출력 포맷과 길이를 명시</li>
+            <li>"한국어로" 입력 시 방금 답변 번역</li>
+            <li>코드 스타일 가이드(ESLint 규칙 등) 명시</li>
+          </ul>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-icon-wrap icon-blue">🔄</div>
+          <h3>컨텍스트 관리</h3>
+          <ul>
+            <li>새 작업은 새 대화창으로 시작</li>
+            <li>import문·의존성 버전도 함께 전달</li>
+            <li>코드 블록 단위로 복사해 구조 유지</li>
+            <li>주석으로 코드 의도 함께 전달</li>
+            <li>에러 메시지는 전체를 그대로 붙여넣기</li>
+          </ul>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-icon-wrap icon-green">🎯</div>
+          <h3>도구 선택 가이드</h3>
+          <ul>
+            <li>코드 생성: Cursor / Claude Code</li>
+            <li>최신 기술 검색: Perplexity / Phind</li>
+            <li>긴 문서 분석: Gemini 2.5 Pro</li>
+            <li>빠른 답변: Groq (초고속 추론)</li>
+            <li>이미지→코드: Claude / GPT-4o</li>
+          </ul>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-icon-wrap icon-orange">⚠️</div>
+          <h3>AI 사용 주의사항</h3>
+          <ul>
+            <li>민감 정보(API 키, 비밀번호) 절대 입력 금지</li>
+            <li>생성된 코드는 반드시 직접 검토</li>
+            <li>라이선스 확인 (저작권 이슈 가능)</li>
+            <li>환각(Hallucination) 검증 필수</li>
+            <li>레거시 패턴 제안 시 버전 확인</li>
+          </ul>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-icon-wrap icon-cyan">🔧</div>
+          <h3>VS Code 활용 팁</h3>
+          <ul>
+            <li>코드 선택 후 AI에게 리팩토링 요청</li>
+            <li>에러 hover 시 AI 설명 바로 확인</li>
+            <li>@workspace로 프로젝트 전체 컨텍스트 활용</li>
+            <li>#file로 특정 파일 참조 가능</li>
+            <li>인라인 채팅으로 현재 위치에서 수정</li>
+          </ul>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-icon-wrap icon-pink">🚀</div>
+          <h3>생산성 극대화 루틴</h3>
+          <ul>
+            <li>스켈레톤 코드 먼저 AI로 생성</li>
+            <li>AI 코드 → 직접 이해 → 커스터마이징</li>
+            <li>단위 테스트를 AI에게 먼저 작성 요청</li>
+            <li>커밋 메시지도 AI 활용</li>
+            <li>PR 설명문 자동 생성 활용</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: 단축키 -->
+    <section aria-labelledby="shortcuts-section">
+      <div class="section-header">
+        <span class="section-tag tag-cyan">단축키</span>
+        <h2 id="shortcuts-section">AI 도구 핵심 단축키</h2>
+        <p>손을 키보드에서 떼지 않고 AI를 활용하는 단축키 모음</p>
+      </div>
+      <div class="shortcut-card">
+        <table class="shortcut-table">
+          <thead>
+            <tr>
+              <th>도구</th>
+              <th>기능</th>
+              <th>Windows / Linux</th>
+              <th>macOS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>GitHub Copilot</td>
+              <td>인라인 채팅 열기</td>
+              <td><span class="kbd"><span class="k">Ctrl</span><span class="k">I</span></span></td>
+              <td><span class="kbd"><span class="k">⌘</span><span class="k">I</span></span></td>
+            </tr>
+            <tr>
+              <td>GitHub Copilot</td>
+              <td>전체 파일 컨텍스트로 질문</td>
+              <td><span class="kbd"><span class="k">Ctrl</span><span class="k">Enter</span></span></td>
+              <td><span class="kbd"><span class="k">⌘</span><span class="k">Enter</span></span></td>
+            </tr>
+            <tr>
+              <td>GitHub Copilot</td>
+              <td>제안 수락</td>
+              <td><span class="kbd"><span class="k">Tab</span></span></td>
+              <td><span class="kbd"><span class="k">Tab</span></span></td>
+            </tr>
+            <tr>
+              <td>GitHub Copilot</td>
+              <td>제안 거절</td>
+              <td><span class="kbd"><span class="k">Esc</span></span></td>
+              <td><span class="kbd"><span class="k">Esc</span></span></td>
+            </tr>
+            <tr>
+              <td>Cursor</td>
+              <td>AI 채팅 패널</td>
+              <td><span class="kbd"><span class="k">Ctrl</span><span class="k">L</span></span></td>
+              <td><span class="kbd"><span class="k">⌘</span><span class="k">L</span></span></td>
+            </tr>
+            <tr>
+              <td>Cursor</td>
+              <td>Composer (멀티파일)</td>
+              <td><span class="kbd"><span class="k">Ctrl</span><span class="k">Shift</span><span class="k">I</span></span></td>
+              <td><span class="kbd"><span class="k">⌘</span><span class="k">Shift</span><span class="k">I</span></span></td>
+            </tr>
+            <tr>
+              <td>Cursor</td>
+              <td>인라인 편집</td>
+              <td><span class="kbd"><span class="k">Ctrl</span><span class="k">K</span></span></td>
+              <td><span class="kbd"><span class="k">⌘</span><span class="k">K</span></span></td>
+            </tr>
+            <tr>
+              <td>VS Code 공통</td>
+              <td>AI 명령 팔레트</td>
+              <td><span class="kbd"><span class="k">Ctrl</span><span class="k">Shift</span><span class="k">P</span></span></td>
+              <td><span class="kbd"><span class="k">⌘</span><span class="k">Shift</span><span class="k">P</span></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section 6: AI 개발 워크플로우 -->
+    <section aria-labelledby="workflow-section">
+      <div class="section-header">
+        <span class="section-tag tag-pink">워크플로우</span>
+        <h2 id="workflow-section">AI 활용 개발 워크플로우</h2>
+        <p>AI를 팀원처럼 활용하는 효율적인 개발 프로세스</p>
+      </div>
+      <div class="workflow-steps">
+        <div class="workflow-step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h3>요구사항 분석 &amp; 설계</h3>
+            <p>ChatGPT / Claude에 요구사항을 설명하고 기술 스택 추천, 아키텍처 설계, 데이터 모델 제안을 받습니다. "어떤 접근법이 더 나은가?" 같은 트레이드오프 질문도 효과적입니다.</p>
+          </div>
+        </div>
+        <div class="workflow-step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h3>스켈레톤 코드 생성</h3>
+            <p>Cursor / Copilot으로 프로젝트 구조와 보일러플레이트 코드를 빠르게 생성합니다. 기술 스택, 포트, 디렉토리 구조를 명확히 전달할수록 더 정확한 코드가 나옵니다.</p>
+          </div>
+        </div>
+        <div class="workflow-step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h3>핵심 로직 구현</h3>
+            <p>복잡한 비즈니스 로직은 AI가 아닌 본인이 직접 설계합니다. AI는 반복적이고 패턴이 있는 코드 생성을 도와주는 역할. 생성된 코드를 이해하지 못하면 사용하지 마세요.</p>
+          </div>
+        </div>
+        <div class="workflow-step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <h3>테스트 코드 생성 &amp; 디버깅</h3>
+            <p>구현한 함수를 AI에게 주고 단위 테스트를 생성받습니다. 에러가 발생하면 에러 메시지 전체와 실행 환경을 함께 전달해 빠르게 해결합니다.</p>
+          </div>
+        </div>
+        <div class="workflow-step">
+          <div class="step-num">5</div>
+          <div class="step-content">
+            <h3>코드 리뷰 &amp; 리팩토링</h3>
+            <p>완성된 코드를 AI에게 보안·성능·가독성 관점에서 리뷰 요청합니다. PR 설명문, 커밋 메시지, API 문서도 AI로 자동 생성해 문서화 시간을 단축합니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section" aria-labelledby="cta-title">
+      <h2 id="cta-title">🚀 지금 바로 시작하세요</h2>
+      <p>AI 도구를 활용해 개발 생산성을 극적으로 높여보세요.<br>처음엔 낯설지만, 한 달이면 없어서는 안 될 도구가 됩니다.</p>
+      <div class="cta-buttons">
+        <a href="https://cursor.sh" target="_blank" rel="noopener" class="btn-primary" id="cta-cursor">
+          ⚡ Cursor 시작하기 (무료)
+        </a>
+        <a href="/mib/ai" class="btn-secondary" id="cta-docs">
+          📖 AI 문서 더 보기
+        </a>
+        <button class="btn-share" id="share-btn-cta" onclick="sharePage()" style="padding: 12px 24px; font-size: 0.95rem;">
+          🔗 가이드 공유 (okdevtv.com/ai)
+        </button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+      <p>
+        <a href="/">OKdevTV</a> &middot;
+        <a href="/mib/ai">AI Driven Dev</a> &middot;
+        <a href="/mib/mcp">MCP</a> &middot;
+        <a href="/mib/llm">LLM</a> &middot;
+        <a href="/mib/openai">OpenAI</a>
+      </p>
+      <p style="margin-top: 8px;">&copy; 2025 OKdevTV. 개발자를 위한 AI 가이드.</p>
+    </footer>
+  </div>
+
+  <!-- Share Toast Notification -->
+  <div id="share-toast" class="share-toast" aria-live="polite">
+    <span class="toast-icon">✨</span>
+    <span id="toast-message">https://okdevtv.com/ai 링크가 복사되었습니다!</span>
+  </div>
+
+  <script>
+    function sharePage() {
+      const shareUrl = 'https://okdevtv.com/ai';
+      const shareTitle = '개발자에게 도움이 되는 AI 사용 가이드 | OKdevTV';
+      const shareText = '개발자를 위한 AI 코딩 도구 활용법 및 프롬프트 엔지니어링 가이드';
+
+      if (navigator.share) {
+        navigator.share({
+          title: shareTitle,
+          text: shareText,
+          url: shareUrl
+        }).catch((err) => {
+          if (err.name !== 'AbortError') {
+            copyToClipboard(shareUrl);
+          }
+        });
+      } else {
+        copyToClipboard(shareUrl);
+      }
+    }
+
+    function copyToClipboard(text) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => showToast(text)).catch(() => fallbackCopy(text));
+      } else {
+        fallbackCopy(text);
+      }
+    }
+
+    function fallbackCopy(text) {
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand('copy');
+        showToast(text);
+      } catch (e) {
+        alert('링크 주소: ' + text);
+      }
+      document.body.removeChild(textarea);
+    }
+
+    function showToast(url) {
+      const toast = document.getElementById('share-toast');
+      const msg = document.getElementById('toast-message');
+      msg.textContent = url + ' 링크가 클립보드에 복사되었습니다!';
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2500);
+    }
+  </script>
+</body>
+
+</html>
