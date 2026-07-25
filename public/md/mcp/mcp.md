@@ -3,9 +3,10 @@
 ## 개요
 
 - Model Context Protocol(MCP)
-- AI 모델과 외부 도구, 데이터 소스 간의 통신을 표준화하는 프로토콜
-- 2023년 Anthropic에서 처음 제안
+- AI 모델과 외부 도구, 데이터 소스 간의 통신을 표준화하는 오픈소스 프로토콜
+- 2024년 11월 Anthropic에서 처음 제안 및 공개
 - AI 시스템이 외부 세계와 효과적으로 상호작용할 수 있도록 설계
+- **오픈 거버넌스 이관**: 지속 가능한 오픈소스 생태계를 위해 **Linux Foundation (Agentic AI Foundation)**에 기부 및 이관되어 운영
 
 ## 주요 특징
 
@@ -13,6 +14,8 @@
 - **도구 확장성**: 새로운 도구와 기능을 쉽게 AI 시스템에 통합 가능
 - **컨텍스트 관리**: 대화 컨텍스트를 효율적으로 관리하여 AI의 이해도 향상
 - **멀티모달 지원**: 텍스트뿐만 아니라 이미지, 오디오 등 다양한 형태의 데이터 처리 지원
+- **MCP Registry (공식 서버 카탈로그)**: 서버 중앙 검색 및 인덱싱을 지원하는 공식 MCP Registry 시스템 도입
+- **MCP Apps (UI 인터랙션 지원)**: 텍스트/JSON 기반 도구 호출을 넘어 대화창 내 양식, 폼, 데이터 시각화 등 Rich UI를 직접 렌더링할 수 있는 **MCP Apps / mcp-ui** 확장 스펙 지원
 
 ## 작동 방식
 
@@ -134,19 +137,17 @@ graph TD
     end
 ```
 
-## 주요 특징
+## AI 모델 및 생태계 통합 (IDE / 도구)
 
-- **표준화된 통신**: AI 모델과 외부 서비스 간의 통신 방식을 표준화
-- **도구 확장성**: 새로운 도구와 기능을 쉽게 AI 시스템에 통합 가능
-- **컨텍스트 관리**: 대화 컨텍스트를 효율적으로 관리하여 AI의 이해도 향상
-- **멀티모달 지원**: 텍스트뿐만 아니라 이미지, 오디오 등 다양한 형태의 데이터 처리 지원
+주요 AI 대형 모델 및 코딩 에디터/IDE들이 MCP를 핵심 표준으로 공식 채택하여 연동을 지원하고 있습니다.
 
-## MCP와 Claude, GPT 통합
+### 주요 AI 모델 및 서비스 지원
+- **Claude (Anthropic)**: MCP를 최초 발표하였으며 기본적으로 완벽한 연동 지원
+- **OpenAI (ChatGPT)**: ChatGPT Desktop, API 등에서 MCP 표준을 공식 채택(Adoption)하여 직접 연동 지원
+- **Google (Gemini)**: DeepMind Gemini 모델 및 플랫폼에서 MCP 표준을 공식 채택하여 연동 지원
 
-최신 AI 모델들은 MCP를 통해 외부 도구와 통합:
-
-- **Claude (Anthropic)**: Claude는 MCP를 기본적으로 지원하며, Claude API를 통해 MCP 서버와 연결
-- **GPT (OpenAI)**: OpenAI의 GPT 모델은 Function Calling 기능을 통해 MCP와 유사한 기능 제공
+### 개발 도구 및 IDE 통합
+- **Claude Desktop**, **Cursor**, **Windsurf**, **VS Code**, **JetBrains** 등 주요 AI 코딩 에디터, IDE 및 에이전트 도구들이 MCP 생태계를 핵심 인터페이스 표준으로 적극 채택
 
 ## 보안 고려사항
 
