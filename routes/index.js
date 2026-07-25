@@ -38,6 +38,10 @@ router.get('/ai', function (req, res) {
   res.render('ai')
 })
 
+router.get('/mib/ai', function (req, res) {
+  res.render('ai')
+})
+
 router.get('/f/:url', function (req, res) {
   const url = req.params.url
   res.redirect(url)
