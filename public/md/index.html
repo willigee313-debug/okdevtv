@@ -1,91 +1,263 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
-    <title>관심 사항</title>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Markdown 문서 목록 | OKdevTV</title>
+    <meta name="description" content="OKdevTV 개발자 기술 문서 모음. AI, LLM, MCP, 개발 도구, 백엔드 및 데이터베이스 기술 가이드." />
+    
     <script src="../js/marked.min.js"></script>
     <script src="../js/jquery.min.js"></script>
-    s
+    <link rel="stylesheet" href="/css/style-md.css" />
+    <style>
+      :root {
+        --primary: #4f46e5;
+        --primary-hover: #4338ca;
+        --bg-color: #0f172a;
+        --card-bg: #1e293b;
+        --card-border: #334155;
+        --text-color: #f8fafc;
+        --text-muted: #94a3b8;
+        --accent: #06b6d4;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        line-height: 1.6;
+      }
+      .md-header {
+        background-color: rgba(15, 23, 42, 0.9);
+        backdrop-filter: blur(8px);
+        border-bottom: 1px solid var(--card-border);
+        padding: 16px 24px;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .md-header a {
+        color: var(--text-color);
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 1.25rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .md-header img {
+        width: 32px;
+        height: 32px;
+      }
+      .md-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 32px 24px;
+      }
+      #content {
+        background-color: var(--card-bg);
+        border: 1px solid var(--card-border);
+        border-radius: 12px;
+        padding: 32px;
+        margin-bottom: 40px;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+      }
+      #content:empty {
+        display: none;
+      }
+      .section-title {
+        font-size: 1.75rem;
+        font-weight: 800;
+        margin-bottom: 24px;
+        background: linear-gradient(135deg, #a5b4fc 0%, #38bdf8 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 24px;
+        margin-bottom: 32px;
+      }
+      .category-card {
+        background-color: var(--card-bg);
+        border: 1px solid var(--card-border);
+        border-radius: 12px;
+        padding: 24px;
+        transition: transform 0.2s ease, border-color 0.2s ease;
+      }
+      .category-card:hover {
+        transform: translateY(-2px);
+        border-color: var(--primary);
+      }
+      .category-card h2 {
+        font-size: 1.2rem;
+        margin-top: 0;
+        margin-bottom: 16px;
+        color: #f1f5f9;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        border-bottom: 1px solid var(--card-border);
+        padding-bottom: 10px;
+      }
+      .category-card ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .category-card li {
+        margin-bottom: 10px;
+      }
+      .category-card a {
+        color: #cbd5e1;
+        text-decoration: none;
+        font-size: 0.95rem;
+        transition: color 0.15s ease;
+        display: inline-block;
+      }
+      .category-card a:hover {
+        color: var(--accent);
+        text-decoration: underline;
+      }
+      .badge-new {
+        background-color: #ef4444;
+        color: white;
+        font-size: 0.7rem;
+        font-weight: 700;
+        padding: 2px 6px;
+        border-radius: 4px;
+        margin-left: 6px;
+        vertical-align: middle;
+      }
+    </style>
   </head>
 
   <body>
     <!-- Header -->
-    <header id="header">
-      <!-- Logo -->
-      <h1 id="logo">
-        <a href="/"
-          ><img
-            src="../images/logo.webp"
-            style="width: 36px; margin-right: 6px; margin-bottom: -6px"
-          />OKdevTV</a
-        >
-      </h1>
+    <header class="md-header">
+      <a href="/">
+        <img src="../images/logo.webp" alt="OKdevTV 로고" />
+        OKdevTV Docs
+      </a>
+      <div>
+        <a href="/" style="font-size: 0.95rem; font-weight: 500; color: var(--text-muted);">홈으로 돌아가기</a>
+      </div>
     </header>
 
-    <div id="content"></div>
-    <script src="md.js"></script>
-    <div style="border: 1px solid #888; padding-left: 12px">
-      <h1>Markdown Files</h1>
-      <ul>
-        <li>
-          <a href="javascript:change('//okdevtv.com/mib/elk/elk5');"
-            >ELK; 오픈소스 데이터 시각화 패키지</a
-          >
-        </li>
-        <li><a href="javascript:change('nodejs/nodejs.md');">Node.js</a></li>
-        <li>
-          <a href="javascript:change('intellij/intellij-shortcuts.md');"
-            >IntelliJ 단축키</a
-          >
-        </li>
-        <li>
-          <a href="javascript:change('rabbitmq/rabbitmq.md');">RabbitMQ</a>
-        </li>
-        <li>
-          <a href="javascript:change('mean/mean.md');">JS Fullstack MEAN</a>
-        </li>
-        <li>
-          <a href="javascript:change('obs/obs.md');"
-            >OBS; 맥에서 아프리카 방송하기</a
-          >
-        </li>
-        <li><a href="javascript:change('docker/docker.md');">Docker</a></li>
-        <li>
-          <a href="javascript:change('virtualbox/virtualbox.md');"
-            >VirtualBox</a
-          >
-        </li>
-        <li>
-          <a href="javascript:change('hibernate/hibernate.md');">Hibernate</a>
-        </li>
-        <li>
-          <a href="javascript:change('securecoding/securecoding.md');"
-            >Secure Coding</a
-          >
-        </li>
-        <li><a href="javascript:change('gruntjs/gruntjs.md');">Grunt.js</a></li>
-        <li>
-          <a href="javascript:change('cloudfoundry/cloudfoundry.md')"
-            >Cloud Foundry</a
-          >
-        </li>
-        <li><a href="javascript:change('aws/aws.md')">aws</a></li>
-        <li><a href="server/server.png">server.png</a></li>
-      </ul>
+    <div class="md-container">
+      <!-- Dynamic Markdown Viewer -->
+      <div id="content"></div>
+      <script src="md.js"></script>
+
+      <!-- Markdown File Catalog -->
+      <div class="section-title">📚 OKdevTV Markdown 기술 문서 목록</div>
+
+      <div class="grid-container">
+        <!-- AI & Agent -->
+        <div class="category-card">
+          <h2>🤖 AI & Agent</h2>
+          <ul>
+            <li>
+              <a href="javascript:change('mcp/mcp.md');">
+                Model Context Protocol (MCP) <span class="badge-new">NEW</span>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:change('a2a/a2a.md');">
+                Agent 2 Agent Protocol (A2A) <span class="badge-new">NEW</span>
+              </a>
+            </li>
+            <li><a href="javascript:change('ai/ai.md');">AI Driven Development</a></li>
+            <li><a href="javascript:change('llm/llm.md');">LLM (Large Language Models)</a></li>
+            <li><a href="javascript:change('openai/openai.md');">OpenAI API Guide</a></li>
+            <li><a href="javascript:change('ollama/ollama.md');">Ollama (Local LLM)</a></li>
+            <li><a href="javascript:change('rag/rag.md');">RAG (Retrieval-Augmented Generation)</a></li>
+            <li><a href="javascript:change('langchain/langchain.md');">LangChain</a></li>
+            <li><a href="javascript:change('llamaindex/llamaindex.md');">LlamaIndex</a></li>
+            <li><a href="javascript:change('spring/ai.md');">Spring AI</a></li>
+            <li><a href="javascript:change('article/20251104-ai-native.md');">AI Native Engineer</a></li>
+          </ul>
+        </div>
+
+        <!-- Dev Tools -->
+        <div class="category-card">
+          <h2>🛠️ 개발 도구 & IDE</h2>
+          <ul>
+            <li><a href="javascript:change('vscode/vscode.md');">VS Code 사용법</a></li>
+            <li><a href="javascript:change('intellij/intellij-shortcuts.md');">IntelliJ 단축키 가이드</a></li>
+            <li><a href="javascript:change('git/git.md');">Git 필수 사용법</a></li>
+            <li><a href="javascript:change('github/github.md');">GitHub 워크플로우</a></li>
+            <li><a href="javascript:change('docker/docker.md');">Docker 가이드</a></li>
+            <li><a href="javascript:change('uv/uv.md');">UV (Fast Python Package Installer)</a></li>
+            <li><a href="javascript:change('brew/brew.md');">Homebrew</a></li>
+            <li><a href="javascript:change('zsh/zsh.md');">Zsh & Oh My Zsh</a></li>
+            <li><a href="javascript:change('zed/zed.md');">Zed Editor</a></li>
+            <li><a href="javascript:change('sdkman/sdkman.md');">SDKMAN!</a></li>
+          </ul>
+        </div>
+
+        <!-- Languages & Frameworks -->
+        <div class="category-card">
+          <h2>💻 언어 & 프레임워크</h2>
+          <ul>
+            <li><a href="javascript:change('java/java.md');">Java 기초 및 심화</a></li>
+            <li><a href="javascript:change('spring/spring.md');">Spring Framework</a></li>
+            <li><a href="javascript:change('nodejs/nodejs.md');">Node.js</a></li>
+            <li><a href="javascript:change('python/python.md');">Python</a></li>
+            <li><a href="javascript:change('js/js.md');">JavaScript</a></li>
+            <li><a href="javascript:change('typescript/typescript.md');">TypeScript</a></li>
+            <li><a href="javascript:change('rust/rust.md');">Rust 시작하기</a></li>
+            <li><a href="javascript:change('go/go.md');">Go 언어</a></li>
+            <li><a href="javascript:change('react/react.md');">React.js</a></li>
+            <li><a href="javascript:change('vue/vue.md');">Vue.js</a></li>
+          </ul>
+        </div>
+
+        <!-- DB & Cloud/DevOps -->
+        <div class="category-card">
+          <h2>🗄️ 데이터베이스 & 클라우드</h2>
+          <ul>
+            <li><a href="javascript:change('mariadb/mariadb.md');">MariaDB</a></li>
+            <li><a href="javascript:change('mongodb/mongodb.md');">MongoDB</a></li>
+            <li><a href="javascript:change('redis/redis.md');">Redis</a></li>
+            <li><a href="javascript:change('nginx/nginx.md');">Nginx 웹 서버</a></li>
+            <li><a href="javascript:change('aws/aws.md');">AWS 클라우드 기초</a></li>
+            <li><a href="javascript:change('kubernetes/kubernetes.md');">Kubernetes</a></li>
+            <li><a href="javascript:change('linux/user.md');">Linux 사용자 관리</a></li>
+            <li><a href="javascript:change('haproxy/haproxy.md');">HAProxy</a></li>
+            <li><a href="javascript:change('elasticsearch/elasticsearch.md');">Elasticsearch</a></li>
+          </ul>
+        </div>
+
+        <!-- Articles & Best Practices -->
+        <div class="category-card">
+          <h2>📝 아티클 & 팁</h2>
+          <ul>
+            <li><a href="javascript:change('article/article.md');">아티클 모음집</a></li>
+            <li><a href="javascript:change('article/20200208-sireview.md');">10년만에 SI 일하며 배운 것들</a></li>
+            <li><a href="javascript:change('refactor/refactor.md');">자주 사용하는 리팩토링 패턴</a></li>
+            <li><a href="javascript:change('securecoding/securecoding.md');">시큐어 코딩 가이드</a></li>
+            <li><a href="javascript:change('msa/anti.md');">마이크로서비스 안티패턴</a></li>
+            <li><a href="javascript:change('devtools/devtools.md');">크롬 개발자 도구 활용법</a></li>
+            <li><a href="javascript:change('article/ppark.md');">개발하면서 제일 빡칠 때</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-DGMC27QNFQ"
-    ></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DGMC27QNFQ"></script>
     <script>
       window.dataLayer = window.dataLayer || []
       function gtag() {
         dataLayer.push(arguments)
       }
       gtag('js', new Date())
-
       gtag('config', 'G-DGMC27QNFQ')
     </script>
   </body>
