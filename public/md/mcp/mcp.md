@@ -158,56 +158,27 @@ MCP를 구현할 때 고려해야 할 주요 보안 사항:
 - **샌드박싱**: 코드 실행 등의 위험한 작업은 격리된 환경에서 수행
 - **속도 제한**: 과도한 API 호출 방지를 위한 속도 제한 구현
 
-## MCP 서버 목록
+## MCP 서버 탐색 및 주요 레퍼런스
 
-### 브라우저 및 웹 자동화
-- **[Puppeteer MCP 서버](https://github.com/puppeteer/puppeteer)**: 웹 브라우저 자동화 및 스크래핑 기능 제공
-- **[BrowserStack MCP 서버](https://github.com/browserstack/mcp-server)**: 다양한 브라우저 환경에서 웹 테스트 자동화
-- **[mcp-server-rag-web-browser](https://github.com/apify/mcp-server-rag-web-browser)**: RAG(Retrieval-Augmented Generation) 기반 웹 브라우징
-- **[Website Generator](https://github.com/b12io/website-generator-mcp-server)**: 웹사이트 생성 자동화
+개별 MCP 서버 및 유틸리티는 생태계 변화가 빠르게 일어나므로, 최신 서버 검색 및 탐색은 공식/대표 카탈로그 레지스트리를 활용하는 것이 좋습니다.
 
-### 데이터 및 분석
-- **[Pinecone Developer MCP](https://github.com/pinecone-io/pinecone-mcp)**: 벡터 데이터베이스 연동
-- **[mcp-hydrolix](https://github.com/hydrolix/mcp-hydrolix)**: 대규모 데이터 분석
-- **[mcp-server-qdrant](https://github.com/qdrant/mcp-server-qdrant)**: 벡터 검색 엔진 연동
-- **[Nodit MCP Server](https://github.com/noditlabs/nodit-mcp-server)**: 블록체인 데이터 분석
+### 1. 대표 레퍼런스 서버 (Official Reference Servers)
 
-### 클라우드 및 개발 도구
-- **[Heroku MCP server](https://github.com/heroku/heroku-mcp-server)**: Heroku 플랫폼 접근 및 관리
-- **[AlibabaCloud MCP Server](https://github.com/aliyun/alibabacloud-core-mcp-server)**: 알리바바 클라우드 서비스 연동
-- **[steampipe-mcp](https://github.com/turbot/steampipe-mcp)**: 클라우드 인프라 쿼리 및 관리
-- **[APISIX-MCP](https://github.com/api7/apisix-mcp)**: API 게이트웨이 관리
+가장 대표적이고 표준으로 사용되는 연동 예시 서버들입니다.
 
-### 검색 및 정보 검색
-- **[Kagi MCP Server](https://github.com/kagisearch/kagimcp)**: 프라이버시 중심 웹 검색
-- **[BigGo MCP Server](https://github.com/Funmula-Corp/BigGo-MCP-Server)**: 상품 검색 및 비교
-- **[ScrapeGraph MCP Server](https://github.com/ScrapeGraphAI/scrapegraph-mcp)**: 웹 스크래핑 및 데이터 추출
+- **filesystem**: 로컬 파일 시스템 읽기/쓰기 및 디렉토리 접근
+- **git / github**: Git 저장소 작업, Issue/PR 조회 및 버전 관리 연동
+- **postgres / sqlite**: 데이터베이스 연결, 스키마 탐색 및 SQL 쿼리 실행
+- **fetch / puppeteer**: 웹 컨텐츠 수집, 스크래핑 및 브라우저 자동화 제어
 
-### 언어 및 번역
-- **[Lara Translate MCP Server](https://github.com/translated/lara-mcp)**: 기계 번역 서비스
-- **[Opik MCP Server](https://github.com/comet-ml/opik-mcp)**: 자연어 처리 및 분석
+### 2. 공식 및 대표 카탈로그
 
-### 자동화 및 통합
-- **[Make MCP Server](https://github.com/integromat/make-mcp-server)**: 워크플로우 자동화
-- **[YingDao RPA MCP Server](https://github.com/ying-dao/yingdao_mcp_server)**: 로봇 프로세스 자동화
-- **[UseGrant MCP Server](https://github.com/usegranthq/mcp-server)**: 권한 관리 자동화
-
-### 금융 및 결제
-- **[Square MCP Server](https://github.com/square/square-mcp-server)**: 결제 처리 및 고객 관리
-- **[Paddle MCP Server](https://github.com/PaddleHQ/paddle-mcp-server)**: 구독 및 결제 관리
-
-### 기타 특수 서버
-- **[Satstream MCP Server](https://github.com/satstream/ss-mcp)**: 위성 데이터 처리
-- **[gotoHuman MCP](https://github.com/gotohuman/gotohuman-mcp-server)**: 인간 전문가 연결
-- **[Sensei MCP](https://github.com/dojoengine/sensei-mcp)**: 게임 개발 및 블록체인 통합
-- **[mcp-metricool](https://github.com/metricool/mcp-metricool)**: 소셜 미디어 마케팅 분석
-- **[Atla](https://github.com/atla-ai/atla-mcp-server)**: AI 모델 관리 및 배포
+- **[MCP Registry](https://github.com/modelcontextprotocol/registry)**: 공식 MCP 서버 인덱스 및 중앙 패키지 검색
+- **[Awesome MCP Servers](https://github.com/modelcontextprotocol/servers)**: 커뮤니티에서 검증된 오픈소스 MCP 서버 모음집
+- **[Glama.ai MCP Directory](https://glama.ai/mcp/servers)**: 웹 기반 MCP 서버 검색 및 탐색 플랫폼
 
 ## 참고 자료
 
-- [Anthropic MCP 공식 문서](https://www.anthropic.com/news/model-context-protocol)
-- [Claude MCP Quickstart](https://www.claudemcp.com/docs/quickstart)
-- [MCP GitHub 레포지토리](https://github.com/anthropics/github-mcp-server)
-- [Anthropic 개발자 커뮤니티](https://discord.com/invite/zkrBaqytPW)
-- [Glama.ai MCP 서버 목록](https://glama.ai/mcp/servers)
-- [Awesome MCP Servers](https://github.com/punkpeye/awesome-mcp-servers)
+- [Model Context Protocol 공식 사이트](https://modelcontextprotocol.io)
+- [Anthropic MCP 안내 문서](https://www.anthropic.com/news/model-context-protocol)
+- [MCP GitHub 조직 레포지토리](https://github.com/modelcontextprotocol)
